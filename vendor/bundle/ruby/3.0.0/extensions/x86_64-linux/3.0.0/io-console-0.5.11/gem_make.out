@@ -1,0 +1,20 @@
+current directory: /home/user/Desktop/ROR/Import_csv/vendor/bundle/ruby/3.0.0/gems/io-console-0.5.11/ext/io/console
+/home/user/.rvm/rubies/ruby-3.0.0/bin/ruby -I /home/user/.rvm/rubies/ruby-3.0.0/lib/ruby/site_ruby/3.0.0 -r ./siteconf20220625-7030-vk1gon.rb extconf.rb
+checking for termios.h... yes
+checking for cfmakeraw() in termios.h... yes
+checking for sys/ioctl.h... yes
+checking for HAVE_RUBY_FIBER_SCHEDULER_H... no
+checking for rb_scheduler_timeout()... no
+creating Makefile
+
+current directory: /home/user/Desktop/ROR/Import_csv/vendor/bundle/ruby/3.0.0/gems/io-console-0.5.11/ext/io/console
+make DESTDIR\= clean
+
+current directory: /home/user/Desktop/ROR/Import_csv/vendor/bundle/ruby/3.0.0/gems/io-console-0.5.11/ext/io/console
+make DESTDIR\=
+compiling console.c
+linking shared-object io/console.so
+
+current directory: /home/user/Desktop/ROR/Import_csv/vendor/bundle/ruby/3.0.0/gems/io-console-0.5.11/ext/io/console
+make DESTDIR\= install
+/usr/bin/install -m 0755 console.so ./.gem.20220625-7030-fwoa8u/io

@@ -1,0 +1,80 @@
+current directory: /home/user/Desktop/ROR/Import_csv/vendor/bundle/ruby/3.0.0/gems/iconv-1.0.8/ext/iconv
+/home/user/.rvm/rubies/ruby-3.0.0/bin/ruby -I /home/user/.rvm/rubies/ruby-3.0.0/lib/ruby/site_ruby/3.0.0 -r ./siteconf20220627-16308-l36gin.rb extconf.rb
+checking for rb_enc_get() in ruby/encoding.h... yes
+checking for rb_sys_fail_str() in ruby.h... yes
+checking for iconv() in iconv.h... yes
+checking signedness of size_t... unsigned
+checking for const of iconv() 2nd argument... no
+checking for iconvlist() in iconv.h... no
+checking for __iconv_free_list() in iconv.h... no
+creating Makefile
+
+current directory: /home/user/Desktop/ROR/Import_csv/vendor/bundle/ruby/3.0.0/gems/iconv-1.0.8/ext/iconv
+make DESTDIR\= clean
+
+current directory: /home/user/Desktop/ROR/Import_csv/vendor/bundle/ruby/3.0.0/gems/iconv-1.0.8/ext/iconv
+make DESTDIR\=
+compiling iconv.c
+iconv.c: In function ‘get_iconv_opt’:
+iconv.c:709:50: warning: passing argument 5 of ‘rb_block_call’ from incompatible pointer type [-Wincompatible-pointer-types]
+  709 |  rb_block_call(options, rb_intern("each"), 0, 0, get_iconv_opt_i, (VALUE)opt);
+      |                                                  ^~~~~~~~~~~~~~~
+      |                                                  |
+      |                                                  VALUE (*)(VALUE,  VALUE) {aka long unsigned int (*)(long unsigned int,  long unsigned int)}
+In file included from /home/user/.rvm/rubies/ruby-3.0.0/include/ruby-3.0.0/ruby/ruby.h:38,
+                 from /home/user/.rvm/rubies/ruby-3.0.0/include/ruby-3.0.0/ruby.h:38,
+                 from iconv.c:16:
+/home/user/.rvm/rubies/ruby-3.0.0/include/ruby-3.0.0/ruby/internal/iterator.h:48:47: note: expected ‘rb_block_call_func_t’ {aka ‘long unsigned int (*)(long unsigned int,  long unsigned int,  int,  const long unsigned int *, long unsigned int)’} but argument is of type ‘VALUE (*)(VALUE,  VALUE)’ {aka ‘long unsigned int (*)(long unsigned int,  long unsigned int)’}
+   48 | VALUE rb_block_call(VALUE,ID,int,const VALUE*,rb_block_call_func_t,VALUE);
+      |                                               ^~~~~~~~~~~~~~~~~~~~
+iconv.c: In function ‘iconv_s_iconv’:
+iconv.c:837:22: warning: passing argument 1 of ‘rb_ensure’ from incompatible pointer type [-Wincompatible-pointer-types]
+  837 |     return rb_ensure(iconv_s_convert, (VALUE)&arg, iconv_free, ICONV2VALUE(arg.cd));
+      |                      ^~~~~~~~~~~~~~~
+      |                      |
+      |                      VALUE (*)(struct iconv_env_t *) {aka long unsigned int (*)(struct iconv_env_t *)}
+In file included from /home/user/.rvm/rubies/ruby-3.0.0/include/ruby-3.0.0/ruby/ruby.h:38,
+                 from /home/user/.rvm/rubies/ruby-3.0.0/include/ruby-3.0.0/ruby.h:38,
+                 from iconv.c:16:
+/home/user/.rvm/rubies/ruby-3.0.0/include/ruby-3.0.0/ruby/internal/iterator.h:53:17: note: expected ‘VALUE (*)(VALUE)’ {aka ‘long unsigned int (*)(long unsigned int)’} but argument is of type ‘VALUE (*)(struct iconv_env_t *)’ {aka ‘long unsigned int (*)(struct iconv_env_t *)’}
+   53 | VALUE rb_ensure(VALUE(*)(VALUE),VALUE,VALUE(*)(VALUE),VALUE);
+      |                 ^~~~~~~~~~~~~~~
+iconv.c: In function ‘iconv_s_conv’:
+iconv.c:858:22: warning: passing argument 1 of ‘rb_ensure’ from incompatible pointer type [-Wincompatible-pointer-types]
+  858 |     return rb_ensure(iconv_s_convert, (VALUE)&arg, iconv_free, ICONV2VALUE(arg.cd));
+      |                      ^~~~~~~~~~~~~~~
+      |                      |
+      |                      VALUE (*)(struct iconv_env_t *) {aka long unsigned int (*)(struct iconv_env_t *)}
+In file included from /home/user/.rvm/rubies/ruby-3.0.0/include/ruby-3.0.0/ruby/ruby.h:38,
+                 from /home/user/.rvm/rubies/ruby-3.0.0/include/ruby-3.0.0/ruby.h:38,
+                 from iconv.c:16:
+/home/user/.rvm/rubies/ruby-3.0.0/include/ruby-3.0.0/ruby/internal/iterator.h:53:17: note: expected ‘VALUE (*)(VALUE)’ {aka ‘long unsigned int (*)(long unsigned int)’} but argument is of type ‘VALUE (*)(struct iconv_env_t *)’ {aka ‘long unsigned int (*)(struct iconv_env_t *)’}
+   53 | VALUE rb_ensure(VALUE(*)(VALUE),VALUE,VALUE(*)(VALUE),VALUE);
+      |                 ^~~~~~~~~~~~~~~
+In file included from /home/user/.rvm/rubies/ruby-3.0.0/include/ruby-3.0.0/ruby/ruby.h:24,
+                 from /home/user/.rvm/rubies/ruby-3.0.0/include/ruby-3.0.0/ruby.h:38,
+                 from iconv.c:16:
+iconv.c: In function ‘Init_iconv’:
+/home/user/.rvm/rubies/ruby-3.0.0/include/ruby-3.0.0/ruby/internal/anyargs.h:307:143: warning: passing argument 3 of ‘rb_define_singleton_method_00’ from incompatible pointer type [-Wincompatible-pointer-types]
+  307 | #define rb_define_singleton_method(obj, mid, func, arity)   RBIMPL_ANYARGS_DISPATCH_rb_define_singleton_method((arity), (func))((obj), (mid), (func), (arity))
+      |                                                                                                                                               ^~~~~~
+      |                                                                                                                                               |
+      |                                                                                                                                               VALUE (*)(void) {aka long unsigned int (*)(void)}
+iconv.c:1330:5: note: in expansion of macro ‘rb_define_singleton_method’
+ 1330 |     rb_define_singleton_method(rb_cIconv, "charset_map", charset_map_get, 0);
+      |     ^~~~~~~~~~~~~~~~~~~~~~~~~~
+/home/user/.rvm/rubies/ruby-3.0.0/include/ruby-3.0.0/ruby/internal/anyargs.h:270:21: note: expected ‘VALUE (*)(VALUE)’ {aka ‘long unsigned int (*)(long unsigned int)’} but argument is of type ‘VALUE (*)(void)’ {aka ‘long unsigned int (*)(void)’}
+  270 | RBIMPL_ANYARGS_DECL(rb_define_singleton_method, VALUE, const char *)
+      |                     ^~~~~~~~~~~~~~~~~~~~~~~~~~
+/home/user/.rvm/rubies/ruby-3.0.0/include/ruby-3.0.0/ruby/internal/anyargs.h:254:41: note: in definition of macro ‘RBIMPL_ANYARGS_DECL’
+  254 | RBIMPL_ANYARGS_ATTRSET(sym) static void sym ## _00(__VA_ARGS__, VALUE(*)(VALUE), int); \
+      |                                         ^~~
+iconv.c: At top level:
+cc1: warning: unrecognized command line option ‘-Wno-self-assign’
+cc1: warning: unrecognized command line option ‘-Wno-parentheses-equality’
+cc1: warning: unrecognized command line option ‘-Wno-constant-logical-operand’
+linking shared-object iconv/iconv.so
+
+current directory: /home/user/Desktop/ROR/Import_csv/vendor/bundle/ruby/3.0.0/gems/iconv-1.0.8/ext/iconv
+make DESTDIR\= install
+/usr/bin/install -m 0755 iconv.so ./.gem.20220627-16308-sxot9s/iconv

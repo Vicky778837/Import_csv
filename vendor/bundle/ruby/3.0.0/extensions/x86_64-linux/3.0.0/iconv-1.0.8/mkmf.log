@@ -1,0 +1,249 @@
+have_func: checking for rb_enc_get() in ruby/encoding.h... -------------------- yes
+
+"gcc -o conftest -I/home/user/.rvm/rubies/ruby-3.0.0/include/ruby-3.0.0/x86_64-linux -I/home/user/.rvm/rubies/ruby-3.0.0/include/ruby-3.0.0/ruby/backward -I/home/user/.rvm/rubies/ruby-3.0.0/include/ruby-3.0.0 -I.    -O3 -ggdb3 -Wall -Wextra -Wdeprecated-declarations -Wduplicated-cond -Wimplicit-function-declaration -Wimplicit-int -Wmisleading-indentation -Wpointer-arith -Wwrite-strings -Wimplicit-fallthrough=0 -Wmissing-noreturn -Wno-cast-function-type -Wno-constant-logical-operand -Wno-long-long -Wno-missing-field-initializers -Wno-overlength-strings -Wno-packed-bitfield-compat -Wno-parentheses-equality -Wno-self-assign -Wno-tautological-compare -Wno-unused-parameter -Wno-unused-value -Wsuggest-attribute=format -Wsuggest-attribute=noreturn -Wunused-variable  -fPIC conftest.c  -L. -L/home/user/.rvm/rubies/ruby-3.0.0/lib -Wl,-rpath,/home/user/.rvm/rubies/ruby-3.0.0/lib -L. -fstack-protector-strong -rdynamic -Wl,-export-dynamic     -Wl,-rpath,'/../lib' -Wl,-rpath,'/../lib' -lruby  -lm   -lc"
+checked program was:
+/* begin */
+1: #include "ruby.h"
+2: 
+3: int main(int argc, char **argv)
+4: {
+5:   return !!argv[argc];
+6: }
+/* end */
+
+"gcc -o conftest -I/home/user/.rvm/rubies/ruby-3.0.0/include/ruby-3.0.0/x86_64-linux -I/home/user/.rvm/rubies/ruby-3.0.0/include/ruby-3.0.0/ruby/backward -I/home/user/.rvm/rubies/ruby-3.0.0/include/ruby-3.0.0 -I.    -O3 -ggdb3 -Wall -Wextra -Wdeprecated-declarations -Wduplicated-cond -Wimplicit-function-declaration -Wimplicit-int -Wmisleading-indentation -Wpointer-arith -Wwrite-strings -Wimplicit-fallthrough=0 -Wmissing-noreturn -Wno-cast-function-type -Wno-constant-logical-operand -Wno-long-long -Wno-missing-field-initializers -Wno-overlength-strings -Wno-packed-bitfield-compat -Wno-parentheses-equality -Wno-self-assign -Wno-tautological-compare -Wno-unused-parameter -Wno-unused-value -Wsuggest-attribute=format -Wsuggest-attribute=noreturn -Wunused-variable  -fPIC conftest.c  -L. -L/home/user/.rvm/rubies/ruby-3.0.0/lib -Wl,-rpath,/home/user/.rvm/rubies/ruby-3.0.0/lib -L. -fstack-protector-strong -rdynamic -Wl,-export-dynamic     -Wl,-rpath,'/../lib' -Wl,-rpath,'/../lib' -lruby  -lm   -lc"
+checked program was:
+/* begin */
+ 1: #include "ruby.h"
+ 2: 
+ 3: #include <ruby/encoding.h>
+ 4: 
+ 5: /*top*/
+ 6: extern int t(void);
+ 7: int main(int argc, char **argv)
+ 8: {
+ 9:   if (argc > 1000000) {
+10:     int (* volatile tp)(void)=(int (*)(void))&t;
+11:     printf("%d", (*tp)());
+12:   }
+13: 
+14:   return !!argv[argc];
+15: }
+16: int t(void) { void ((*volatile p)()); p = (void ((*)()))rb_enc_get; return !p; }
+/* end */
+
+--------------------
+
+have_func: checking for rb_sys_fail_str() in ruby.h... -------------------- yes
+
+"gcc -o conftest -I/home/user/.rvm/rubies/ruby-3.0.0/include/ruby-3.0.0/x86_64-linux -I/home/user/.rvm/rubies/ruby-3.0.0/include/ruby-3.0.0/ruby/backward -I/home/user/.rvm/rubies/ruby-3.0.0/include/ruby-3.0.0 -I.    -O3 -ggdb3 -Wall -Wextra -Wdeprecated-declarations -Wduplicated-cond -Wimplicit-function-declaration -Wimplicit-int -Wmisleading-indentation -Wpointer-arith -Wwrite-strings -Wimplicit-fallthrough=0 -Wmissing-noreturn -Wno-cast-function-type -Wno-constant-logical-operand -Wno-long-long -Wno-missing-field-initializers -Wno-overlength-strings -Wno-packed-bitfield-compat -Wno-parentheses-equality -Wno-self-assign -Wno-tautological-compare -Wno-unused-parameter -Wno-unused-value -Wsuggest-attribute=format -Wsuggest-attribute=noreturn -Wunused-variable  -fPIC conftest.c  -L. -L/home/user/.rvm/rubies/ruby-3.0.0/lib -Wl,-rpath,/home/user/.rvm/rubies/ruby-3.0.0/lib -L. -fstack-protector-strong -rdynamic -Wl,-export-dynamic     -Wl,-rpath,'/../lib' -Wl,-rpath,'/../lib' -lruby  -lm   -lc"
+checked program was:
+/* begin */
+ 1: #include "ruby.h"
+ 2: 
+ 3: #include <ruby.h>
+ 4: 
+ 5: /*top*/
+ 6: extern int t(void);
+ 7: int main(int argc, char **argv)
+ 8: {
+ 9:   if (argc > 1000000) {
+10:     int (* volatile tp)(void)=(int (*)(void))&t;
+11:     printf("%d", (*tp)());
+12:   }
+13: 
+14:   return !!argv[argc];
+15: }
+16: int t(void) { void ((*volatile p)()); p = (void ((*)()))rb_sys_fail_str; return !p; }
+/* end */
+
+--------------------
+
+have_func: checking for iconv() in iconv.h... -------------------- yes
+
+"gcc -o conftest -I/home/user/.rvm/rubies/ruby-3.0.0/include/ruby-3.0.0/x86_64-linux -I/home/user/.rvm/rubies/ruby-3.0.0/include/ruby-3.0.0/ruby/backward -I/home/user/.rvm/rubies/ruby-3.0.0/include/ruby-3.0.0 -I.    -O3 -ggdb3 -Wall -Wextra -Wdeprecated-declarations -Wduplicated-cond -Wimplicit-function-declaration -Wimplicit-int -Wmisleading-indentation -Wpointer-arith -Wwrite-strings -Wimplicit-fallthrough=0 -Wmissing-noreturn -Wno-cast-function-type -Wno-constant-logical-operand -Wno-long-long -Wno-missing-field-initializers -Wno-overlength-strings -Wno-packed-bitfield-compat -Wno-parentheses-equality -Wno-self-assign -Wno-tautological-compare -Wno-unused-parameter -Wno-unused-value -Wsuggest-attribute=format -Wsuggest-attribute=noreturn -Wunused-variable  -fPIC conftest.c  -L. -L/home/user/.rvm/rubies/ruby-3.0.0/lib -Wl,-rpath,/home/user/.rvm/rubies/ruby-3.0.0/lib -L. -fstack-protector-strong -rdynamic -Wl,-export-dynamic     -Wl,-rpath,'/../lib' -Wl,-rpath,'/../lib' -lruby  -lm   -lc"
+checked program was:
+/* begin */
+ 1: #include "ruby.h"
+ 2: 
+ 3: #include <iconv.h>
+ 4: 
+ 5: /*top*/
+ 6: extern int t(void);
+ 7: int main(int argc, char **argv)
+ 8: {
+ 9:   if (argc > 1000000) {
+10:     int (* volatile tp)(void)=(int (*)(void))&t;
+11:     printf("%d", (*tp)());
+12:   }
+13: 
+14:   return !!argv[argc];
+15: }
+16: int t(void) { void ((*volatile p)()); p = (void ((*)()))iconv; return !p; }
+/* end */
+
+--------------------
+
+check_signedness: checking signedness of size_t... -------------------- unsigned
+
+"gcc -I/home/user/.rvm/rubies/ruby-3.0.0/include/ruby-3.0.0/x86_64-linux -I/home/user/.rvm/rubies/ruby-3.0.0/include/ruby-3.0.0/ruby/backward -I/home/user/.rvm/rubies/ruby-3.0.0/include/ruby-3.0.0 -I.    -O3 -ggdb3 -Wall -Wextra -Wdeprecated-declarations -Wduplicated-cond -Wimplicit-function-declaration -Wimplicit-int -Wmisleading-indentation -Wpointer-arith -Wwrite-strings -Wimplicit-fallthrough=0 -Wmissing-noreturn -Wno-cast-function-type -Wno-constant-logical-operand -Wno-long-long -Wno-missing-field-initializers -Wno-overlength-strings -Wno-packed-bitfield-compat -Wno-parentheses-equality -Wno-self-assign -Wno-tautological-compare -Wno-unused-parameter -Wno-unused-value -Wsuggest-attribute=format -Wsuggest-attribute=noreturn -Wunused-variable  -fPIC   -c conftest.c"
+conftest.c:6:39: warning: comparison of unsigned expression < 0 is always false [-Wtype-limits]
+    6 | int conftest_const[((rbcv_typedef_)-1 < 0) ? 1 : -1];
+      |                                       ^
+conftest.c:6:5: error: size of array ‘conftest_const’ is negative
+    6 | int conftest_const[((rbcv_typedef_)-1 < 0) ? 1 : -1];
+      |     ^~~~~~~~~~~~~~
+cc1: warning: unrecognized command line option ‘-Wno-self-assign’
+cc1: warning: unrecognized command line option ‘-Wno-parentheses-equality’
+cc1: warning: unrecognized command line option ‘-Wno-constant-logical-operand’
+checked program was:
+/* begin */
+1: #include "ruby.h"
+2: 
+3: typedef size_t rbcv_typedef_;
+4: 
+5: /*top*/
+6: int conftest_const[((rbcv_typedef_)-1 < 0) ? 1 : -1];
+/* end */
+
+"gcc -I/home/user/.rvm/rubies/ruby-3.0.0/include/ruby-3.0.0/x86_64-linux -I/home/user/.rvm/rubies/ruby-3.0.0/include/ruby-3.0.0/ruby/backward -I/home/user/.rvm/rubies/ruby-3.0.0/include/ruby-3.0.0 -I.    -O3 -ggdb3 -Wall -Wextra -Wdeprecated-declarations -Wduplicated-cond -Wimplicit-function-declaration -Wimplicit-int -Wmisleading-indentation -Wpointer-arith -Wwrite-strings -Wimplicit-fallthrough=0 -Wmissing-noreturn -Wno-cast-function-type -Wno-constant-logical-operand -Wno-long-long -Wno-missing-field-initializers -Wno-overlength-strings -Wno-packed-bitfield-compat -Wno-parentheses-equality -Wno-self-assign -Wno-tautological-compare -Wno-unused-parameter -Wno-unused-value -Wsuggest-attribute=format -Wsuggest-attribute=noreturn -Wunused-variable  -fPIC   -c conftest.c"
+checked program was:
+/* begin */
+1: #include "ruby.h"
+2: 
+3: typedef size_t rbcv_typedef_;
+4: 
+5: /*top*/
+6: int conftest_const[((rbcv_typedef_)-1 > 0) ? 1 : -1];
+/* end */
+
+--------------------
+
+checking for const of iconv() 2nd argument... -------------------- no
+
+gcc -E -I/home/user/.rvm/rubies/ruby-3.0.0/include/ruby-3.0.0/x86_64-linux -I/home/user/.rvm/rubies/ruby-3.0.0/include/ruby-3.0.0/ruby/backward -I/home/user/.rvm/rubies/ruby-3.0.0/include/ruby-3.0.0 -I.    -O3 -ggdb3 -Wall -Wextra -Wdeprecated-declarations -Wduplicated-cond -Wimplicit-function-declaration -Wimplicit-int -Wmisleading-indentation -Wpointer-arith -Wwrite-strings -Wimplicit-fallthrough=0 -Wmissing-noreturn -Wno-cast-function-type -Wno-constant-logical-operand -Wno-long-long -Wno-missing-field-initializers -Wno-overlength-strings -Wno-packed-bitfield-compat -Wno-parentheses-equality -Wno-self-assign -Wno-tautological-compare -Wno-unused-parameter -Wno-unused-value -Wsuggest-attribute=format -Wsuggest-attribute=noreturn -Wunused-variable  -fPIC  conftest.c  |
+iconv (iconv_t __cd, char **__restrict __inbuf,
+       size_t *__restrict __inbytesleft,
+       char **__restrict __outbuf,
+       size_t *__restrict __outbytesleft);
+--------------------
+
+have_func: checking for iconvlist() in iconv.h... -------------------- no
+
+"gcc -o conftest -I/home/user/.rvm/rubies/ruby-3.0.0/include/ruby-3.0.0/x86_64-linux -I/home/user/.rvm/rubies/ruby-3.0.0/include/ruby-3.0.0/ruby/backward -I/home/user/.rvm/rubies/ruby-3.0.0/include/ruby-3.0.0 -I.    -O3 -ggdb3 -Wall -Wextra -Wdeprecated-declarations -Wduplicated-cond -Wimplicit-function-declaration -Wimplicit-int -Wmisleading-indentation -Wpointer-arith -Wwrite-strings -Wimplicit-fallthrough=0 -Wmissing-noreturn -Wno-cast-function-type -Wno-constant-logical-operand -Wno-long-long -Wno-missing-field-initializers -Wno-overlength-strings -Wno-packed-bitfield-compat -Wno-parentheses-equality -Wno-self-assign -Wno-tautological-compare -Wno-unused-parameter -Wno-unused-value -Wsuggest-attribute=format -Wsuggest-attribute=noreturn -Wunused-variable  -fPIC conftest.c  -L. -L/home/user/.rvm/rubies/ruby-3.0.0/lib -Wl,-rpath,/home/user/.rvm/rubies/ruby-3.0.0/lib -L. -fstack-protector-strong -rdynamic -Wl,-export-dynamic     -Wl,-rpath,'/../lib' -Wl,-rpath,'/../lib' -lruby  -lm   -lc"
+conftest.c: In function ‘t’:
+conftest.c:16:57: error: ‘iconvlist’ undeclared (first use in this function); did you mean ‘iconv_t’?
+   16 | int t(void) { void ((*volatile p)()); p = (void ((*)()))iconvlist; return !p; }
+      |                                                         ^~~~~~~~~
+      |                                                         iconv_t
+conftest.c:16:57: note: each undeclared identifier is reported only once for each function it appears in
+conftest.c: At top level:
+cc1: warning: unrecognized command line option ‘-Wno-self-assign’
+cc1: warning: unrecognized command line option ‘-Wno-parentheses-equality’
+cc1: warning: unrecognized command line option ‘-Wno-constant-logical-operand’
+checked program was:
+/* begin */
+ 1: #include "ruby.h"
+ 2: 
+ 3: #include <iconv.h>
+ 4: 
+ 5: /*top*/
+ 6: extern int t(void);
+ 7: int main(int argc, char **argv)
+ 8: {
+ 9:   if (argc > 1000000) {
+10:     int (* volatile tp)(void)=(int (*)(void))&t;
+11:     printf("%d", (*tp)());
+12:   }
+13: 
+14:   return !!argv[argc];
+15: }
+16: int t(void) { void ((*volatile p)()); p = (void ((*)()))iconvlist; return !p; }
+/* end */
+
+"gcc -o conftest -I/home/user/.rvm/rubies/ruby-3.0.0/include/ruby-3.0.0/x86_64-linux -I/home/user/.rvm/rubies/ruby-3.0.0/include/ruby-3.0.0/ruby/backward -I/home/user/.rvm/rubies/ruby-3.0.0/include/ruby-3.0.0 -I.    -O3 -ggdb3 -Wall -Wextra -Wdeprecated-declarations -Wduplicated-cond -Wimplicit-function-declaration -Wimplicit-int -Wmisleading-indentation -Wpointer-arith -Wwrite-strings -Wimplicit-fallthrough=0 -Wmissing-noreturn -Wno-cast-function-type -Wno-constant-logical-operand -Wno-long-long -Wno-missing-field-initializers -Wno-overlength-strings -Wno-packed-bitfield-compat -Wno-parentheses-equality -Wno-self-assign -Wno-tautological-compare -Wno-unused-parameter -Wno-unused-value -Wsuggest-attribute=format -Wsuggest-attribute=noreturn -Wunused-variable  -fPIC conftest.c  -L. -L/home/user/.rvm/rubies/ruby-3.0.0/lib -Wl,-rpath,/home/user/.rvm/rubies/ruby-3.0.0/lib -L. -fstack-protector-strong -rdynamic -Wl,-export-dynamic     -Wl,-rpath,'/../lib' -Wl,-rpath,'/../lib' -lruby  -lm   -lc"
+/usr/bin/ld: /tmp/ccz6Yzgy.o: in function `t':
+/home/user/Desktop/ROR/Import_csv/vendor/bundle/ruby/3.0.0/gems/iconv-1.0.8/ext/iconv/conftest.c:17: undefined reference to `iconvlist'
+collect2: error: ld returned 1 exit status
+checked program was:
+/* begin */
+ 1: #include "ruby.h"
+ 2: 
+ 3: #include <iconv.h>
+ 4: 
+ 5: /*top*/
+ 6: extern int t(void);
+ 7: int main(int argc, char **argv)
+ 8: {
+ 9:   if (argc > 1000000) {
+10:     int (* volatile tp)(void)=(int (*)(void))&t;
+11:     printf("%d", (*tp)());
+12:   }
+13: 
+14:   return !!argv[argc];
+15: }
+16: extern void iconvlist();
+17: int t(void) { iconvlist(); return 0; }
+/* end */
+
+--------------------
+
+have_func: checking for __iconv_free_list() in iconv.h... -------------------- no
+
+"gcc -o conftest -I/home/user/.rvm/rubies/ruby-3.0.0/include/ruby-3.0.0/x86_64-linux -I/home/user/.rvm/rubies/ruby-3.0.0/include/ruby-3.0.0/ruby/backward -I/home/user/.rvm/rubies/ruby-3.0.0/include/ruby-3.0.0 -I.    -O3 -ggdb3 -Wall -Wextra -Wdeprecated-declarations -Wduplicated-cond -Wimplicit-function-declaration -Wimplicit-int -Wmisleading-indentation -Wpointer-arith -Wwrite-strings -Wimplicit-fallthrough=0 -Wmissing-noreturn -Wno-cast-function-type -Wno-constant-logical-operand -Wno-long-long -Wno-missing-field-initializers -Wno-overlength-strings -Wno-packed-bitfield-compat -Wno-parentheses-equality -Wno-self-assign -Wno-tautological-compare -Wno-unused-parameter -Wno-unused-value -Wsuggest-attribute=format -Wsuggest-attribute=noreturn -Wunused-variable  -fPIC conftest.c  -L. -L/home/user/.rvm/rubies/ruby-3.0.0/lib -Wl,-rpath,/home/user/.rvm/rubies/ruby-3.0.0/lib -L. -fstack-protector-strong -rdynamic -Wl,-export-dynamic     -Wl,-rpath,'/../lib' -Wl,-rpath,'/../lib' -lruby  -lm   -lc"
+conftest.c: In function ‘t’:
+conftest.c:16:57: error: ‘__iconv_free_list’ undeclared (first use in this function)
+   16 | int t(void) { void ((*volatile p)()); p = (void ((*)()))__iconv_free_list; return !p; }
+      |                                                         ^~~~~~~~~~~~~~~~~
+conftest.c:16:57: note: each undeclared identifier is reported only once for each function it appears in
+conftest.c: At top level:
+cc1: warning: unrecognized command line option ‘-Wno-self-assign’
+cc1: warning: unrecognized command line option ‘-Wno-parentheses-equality’
+cc1: warning: unrecognized command line option ‘-Wno-constant-logical-operand’
+checked program was:
+/* begin */
+ 1: #include "ruby.h"
+ 2: 
+ 3: #include <iconv.h>
+ 4: 
+ 5: /*top*/
+ 6: extern int t(void);
+ 7: int main(int argc, char **argv)
+ 8: {
+ 9:   if (argc > 1000000) {
+10:     int (* volatile tp)(void)=(int (*)(void))&t;
+11:     printf("%d", (*tp)());
+12:   }
+13: 
+14:   return !!argv[argc];
+15: }
+16: int t(void) { void ((*volatile p)()); p = (void ((*)()))__iconv_free_list; return !p; }
+/* end */
+
+"gcc -o conftest -I/home/user/.rvm/rubies/ruby-3.0.0/include/ruby-3.0.0/x86_64-linux -I/home/user/.rvm/rubies/ruby-3.0.0/include/ruby-3.0.0/ruby/backward -I/home/user/.rvm/rubies/ruby-3.0.0/include/ruby-3.0.0 -I.    -O3 -ggdb3 -Wall -Wextra -Wdeprecated-declarations -Wduplicated-cond -Wimplicit-function-declaration -Wimplicit-int -Wmisleading-indentation -Wpointer-arith -Wwrite-strings -Wimplicit-fallthrough=0 -Wmissing-noreturn -Wno-cast-function-type -Wno-constant-logical-operand -Wno-long-long -Wno-missing-field-initializers -Wno-overlength-strings -Wno-packed-bitfield-compat -Wno-parentheses-equality -Wno-self-assign -Wno-tautological-compare -Wno-unused-parameter -Wno-unused-value -Wsuggest-attribute=format -Wsuggest-attribute=noreturn -Wunused-variable  -fPIC conftest.c  -L. -L/home/user/.rvm/rubies/ruby-3.0.0/lib -Wl,-rpath,/home/user/.rvm/rubies/ruby-3.0.0/lib -L. -fstack-protector-strong -rdynamic -Wl,-export-dynamic     -Wl,-rpath,'/../lib' -Wl,-rpath,'/../lib' -lruby  -lm   -lc"
+/usr/bin/ld: /tmp/cce0auKk.o: in function `t':
+/home/user/Desktop/ROR/Import_csv/vendor/bundle/ruby/3.0.0/gems/iconv-1.0.8/ext/iconv/conftest.c:17: undefined reference to `__iconv_free_list'
+collect2: error: ld returned 1 exit status
+checked program was:
+/* begin */
+ 1: #include "ruby.h"
+ 2: 
+ 3: #include <iconv.h>
+ 4: 
+ 5: /*top*/
+ 6: extern int t(void);
+ 7: int main(int argc, char **argv)
+ 8: {
+ 9:   if (argc > 1000000) {
+10:     int (* volatile tp)(void)=(int (*)(void))&t;
+11:     printf("%d", (*tp)());
+12:   }
+13: 
+14:   return !!argv[argc];
+15: }
+16: extern void __iconv_free_list();
+17: int t(void) { __iconv_free_list(); return 0; }
+/* end */
+
+--------------------
+
